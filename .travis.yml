@@ -6,6 +6,7 @@ node_js:
 
 before_script:
   - npm install -g @angular/cli
+  - cd my-first-app
   - npm install
   - ng build
 
