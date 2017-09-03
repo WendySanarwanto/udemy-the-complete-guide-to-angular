@@ -10,5 +10,4 @@
 <ng-template #serverNotCreated>
     <p>Server is not created</p>
 </ng-template>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let _server of servers" ></app-server>
