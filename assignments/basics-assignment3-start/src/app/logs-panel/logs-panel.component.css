@@ -1,3 +1,7 @@
 .well, .panel {
     margin-top: 1em;
 }
+
+.older-log-message {
+    color: white;
+}
