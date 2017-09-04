@@ -5,15 +5,11 @@
 <!-- Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna' -->
 <p class="well" *ngIf="showContent">Secret Password = tuna</p>
 
-<!-- TODO: Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number) -->
+<!-- Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number) -->
 <div class="panel panel-primary">
     <div class="panel-heading">Log messages</div>
     <div class="panel-body">
-        <p>Log Message #1</p>
-        <p>Log Message #2</p>
-        <p>Log Message #3</p>
-        <p>Log Message #4</p>
-        <p>Log Message #5</p>
+        <p *ngFor="let log of buttonClickLogs">{{log}}</p>
     </div>
 </div>
 <!-- TODO: Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass) -->
