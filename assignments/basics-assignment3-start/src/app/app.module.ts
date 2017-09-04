@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { LogsPanelComponent } from './logs-panel/logs-panel.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LogsPanelComponent
   ],
   imports: [
     BrowserModule
