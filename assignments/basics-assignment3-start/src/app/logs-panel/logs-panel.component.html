@@ -1,0 +1,17 @@
+<!-- Add A button which says 'Display Details' -->
+<button type="button"     
+    [ngClass]="[showContent ? 'btn btn-info' : 'btn btn-primary']"
+    (click)="onButtonClicked()">{{buttonActionLabel}} Details</button>
+<!-- Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna' -->
+<p class="well" *ngIf="showContent">Secret Password = tuna</p>
+
+<!-- Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number) -->
+<div class="panel panel-primary">
+    <div class="panel-heading">Log messages</div>
+    <div class="panel-body">
+        <!-- Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass) -->
+        <p *ngFor="let log of buttonClickLogs; let i = index;"
+            [ngStyle]="{'backgroundColor': i >= 4 ? 'blue' : 'transparent'}"
+            [ngClass]="[ i >= 4 ? 'older-log-message' : '']">{{log}}</p>
+    </div>
+</div>
