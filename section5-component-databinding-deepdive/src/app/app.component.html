@@ -37,11 +37,14 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h3 class="panel-title">
-                  {{server.name}}
+                  <strong>{{server.name}}</strong>
                 </h3>
               </div>
               <div class="panel-body">
-                  {{server.content}}
+                  <div [ngClass]="[server.is_blueprint ? 'text-primary': 'text-danger']">
+                    <strong *ngIf="!server.is_blueprint">{{server.content}}</strong>
+                    <em *ngIf="server.is_blueprint"><strong>{{server.content}}</strong></em>
+                  </div>
               </div>
             </div>
           </div>
