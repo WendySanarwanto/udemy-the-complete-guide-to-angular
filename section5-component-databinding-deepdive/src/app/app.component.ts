@@ -7,15 +7,9 @@ import { IServer } from '../shared/server.contract';
 })
 export class AppComponent {
   title = 'app';
-  server_name = '';
-  server_content = '';
   servers: IServer[] = [];
 
-  addServerClick(is_blueprint: boolean = false) {
-    this.servers.push({
-      name: this.server_name,
-      content: this.server_content,
-      is_blueprint: is_blueprint,
-    });
+  addServerClick(new_server: IServer) {
+    this.servers.push(new_server);
   }
 }
