@@ -8,21 +8,25 @@
     <div class="row">
       <div class="col-sm-12 form-group">
         <label for="name">Server name</label>
-        <input type="text" id="name" [(ngModel)] = "server_name" class="form-control">
+        <!-- <input type="text" id="name" [(ngModel)] = "server_name" class="form-control"> -->
+        <input type="text" id="name" class="form-control" #serverName>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-12 form-group">
         <label for="content">Server content</label>
-        <input type="text" id="content" [(ngModel)] = "server_content" class="form-control">
+        <!-- <input type="text" id="content" [(ngModel)] = "server_content" class="form-control"> -->
+        <input type="text" id="content" class="form-control" #serverContent>
       </div>
     </div>
 
     <div class="row">
       <div class="col-sm-4">
-        <button type="button" class="btn btn-primary" (click)="addServerClick()">Add Server</button>
-        <button type="button" class="btn btn-primary" (click)="addServerClick(true)">Add Server Blueprint</button>
+        <!-- <button type="button" class="btn btn-primary" (click)="addServerClick()">Add Server</button>
+        <button type="button" class="btn btn-primary" (click)="addServerClick(true)">Add Server Blueprint</button> -->
+        <button type="button" class="btn btn-primary" (click)="addServerClick(serverName.value, serverContent.value)">Add Server</button>
+        <button type="button" class="btn btn-primary" (click)="addServerClick(serverName.value, serverContent.value, true)">Add Server Blueprint</button>        
       </div>
     </div>
   </div>
