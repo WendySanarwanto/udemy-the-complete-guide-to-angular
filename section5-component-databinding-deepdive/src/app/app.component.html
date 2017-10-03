@@ -1,0 +1,9 @@
+<div class="container">
+  <app-cockpit (addServer)="addServerClick($event)"></app-cockpit>
+  <hr>
+  <div class="row" *ngIf="servers.length > 0">
+    <div class="col-xs-12">
+      <app-server-element *ngFor="let server of servers" [server]="server"></app-server-element>
+    </div>
+  </div>
+</div>
