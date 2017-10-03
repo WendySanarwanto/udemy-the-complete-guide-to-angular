@@ -7,14 +7,24 @@ import { IServer } from '../../shared/server.contract';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
-  server_name = '';
-  server_content = '';
+  // server_name = '';
+  // server_content = '';
+
   @Output() addServer: EventEmitter<IServer> = new EventEmitter<IServer>();
 
-  addServerClick(is_blueprint: boolean = false) {
+  // addServerClick(is_blueprint: boolean = false) {
+  //   const new_server: IServer = {
+  //     name: this.server_name,
+  //     content: this.server_content,
+  //     is_blueprint: is_blueprint,
+  //   };
+  //   this.addServer.emit(new_server);
+  // }
+
+  addServerClick(server_name: string, server_content: string, is_blueprint: boolean = false) {
     const new_server: IServer = {
-      name: this.server_name,
-      content: this.server_content,
+      name: server_name,
+      content: server_content,
       is_blueprint: is_blueprint,
     };
     this.addServer.emit(new_server);
