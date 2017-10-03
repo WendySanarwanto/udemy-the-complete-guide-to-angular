@@ -3,7 +3,13 @@
   <hr>
   <div class="row" *ngIf="servers.length > 0">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let server of servers" [server]="server"></app-server-element>
+      <app-server-element *ngFor="let server of servers" [server]="server">
+        <!-- These will be projected into app-server-element's ng-content -->
+        <div [ngClass]="[server.is_blueprint ? 'text-primary': 'text-danger']">
+          <strong *ngIf="!server.is_blueprint">{{server.content}}</strong>
+          <em *ngIf="server.is_blueprint"><strong>{{server.content}}</strong></em>
+        </div>        
+      </app-server-element>
     </div>
   </div>
 </div>
