@@ -12,4 +12,12 @@ export class AppComponent {
   addServerClick(new_server: IServer) {
     this.servers.push(new_server);
   }
+
+  onChangeFirst() {
+    this.servers[0].name = 'Changed';
+  }
+
+  onDestroyFirst() {
+    this.servers.splice(0, 1);
+  }
 }
