@@ -4,6 +4,7 @@ import {
     AfterViewChecked,
     AfterViewInit,
     Component,
+    ContentChild,
     DoCheck,
     ElementRef,
     Input,
@@ -25,11 +26,12 @@ import { IServer } from '../../shared/server.contract';
    // Emulated -> It mimicks Native for sake of supporting old browsers and it's the default ViewEncapsulation
 })
 
-export class ServerElementComponent implements AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, 
+export class ServerElementComponent implements AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
   OnChanges, OnDestroy, OnInit, DoCheck {
   @Input() server: IServer;
   @Input() name: string;
   @ViewChild('heading') header: ElementRef;
+  @ContentChild('serverContent') serverContent: ElementRef;
 
   constructor() {
     console.log(`[DEBUG] - 'ServerElement': constructor is called.`);
@@ -58,6 +60,7 @@ export class ServerElementComponent implements AfterContentChecked, AfterContent
   ngAfterViewInit() {
     console.log(`[DEBUG] - 'ServerElement': 'ngAfterViewInit' is called.`);
     console.log(`[DEBUG] - 'ServerElement': In 'ngAfterViewInit', #heading: `, this.header.nativeElement.textContent);
+    console.log(`[DEBUG] - 'ServerElement': In 'ngAfterViewInit', serverContent: `, this.serverContent.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {
