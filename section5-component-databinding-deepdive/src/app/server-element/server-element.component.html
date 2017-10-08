@@ -7,10 +7,11 @@
         </h3>
       </div>
       <div class="panel-body">
-          <div [ngClass]="[server.is_blueprint ? 'text-primary': 'text-danger']">
+          <!-- <div [ngClass]="[server.is_blueprint ? 'text-primary': 'text-danger']">
             <strong *ngIf="!server.is_blueprint">{{server.content}}</strong>
             <em *ngIf="server.is_blueprint"><strong>{{server.content}}</strong></em>
-          </div>
+          </div> -->
+          <ng-content></ng-content>
       </div>
     </div>
   </div>
