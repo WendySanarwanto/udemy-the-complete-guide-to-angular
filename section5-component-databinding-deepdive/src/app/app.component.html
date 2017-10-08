@@ -7,7 +7,7 @@
       <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy First Element</button>
       <app-server-element *ngFor="let server of servers" [server]="server" [name]="server.name">
         <!-- These will be projected into app-server-element's ng-content -->
-        <div [ngClass]="[server.is_blueprint ? 'text-primary': 'text-danger']">
+        <div [ngClass]="[server.is_blueprint ? 'text-primary': 'text-danger']" #serverContent>
           <strong *ngIf="!server.is_blueprint">{{server.content}}</strong>
           <em *ngIf="server.is_blueprint"><strong>{{server.content}}</strong></em>
         </div>        
