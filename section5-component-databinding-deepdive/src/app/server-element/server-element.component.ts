@@ -1,16 +1,18 @@
 import {
-  AfterContentChecked,
-  AfterContentInit,
-  AfterViewChecked,
-  AfterViewInit,
-  Component,
-  DoCheck,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
-  ViewEncapsulation
+    AfterContentChecked,
+    AfterContentInit,
+    AfterViewChecked,
+    AfterViewInit,
+    Component,
+    DoCheck,
+    ElementRef,
+    Input,
+    OnChanges,
+    OnDestroy,
+    OnInit,
+    SimpleChanges,
+    ViewChild,
+    ViewEncapsulation,
 } from '@angular/core';
 import { IServer } from '../../shared/server.contract';
 
@@ -27,6 +29,7 @@ export class ServerElementComponent implements AfterContentChecked, AfterContent
   OnChanges, OnDestroy, OnInit, DoCheck {
   @Input() server: IServer;
   @Input() name: string;
+  @ViewChild('heading') header: ElementRef;
 
   constructor() {
     console.log(`[DEBUG] - 'ServerElement': constructor is called.`);
@@ -54,6 +57,7 @@ export class ServerElementComponent implements AfterContentChecked, AfterContent
 
   ngAfterViewInit() {
     console.log(`[DEBUG] - 'ServerElement': 'ngAfterViewInit' is called.`);
+    console.log(`[DEBUG] - 'ServerElement': In 'ngAfterViewInit', #heading: `, this.header.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {
