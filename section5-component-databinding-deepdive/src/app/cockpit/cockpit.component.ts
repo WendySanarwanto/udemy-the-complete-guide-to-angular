@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { IServer } from '../../shared/server.contract';
 
 @Component({
@@ -9,6 +9,7 @@ import { IServer } from '../../shared/server.contract';
 export class CockpitComponent implements OnInit {
   // server_name = '';
   // server_content = '';
+  @ViewChild('serverContent') serverContentInput: ElementRef;
 
   @Output() addServer: EventEmitter<IServer> = new EventEmitter<IServer>();
 
@@ -21,7 +22,17 @@ export class CockpitComponent implements OnInit {
   //   this.addServer.emit(new_server);
   // }
 
-  addServerClick(server_name: string, server_content: string, is_blueprint: boolean = false) {
+  // addServerClick(server_name: string, server_content: string, is_blueprint: boolean = false) {
+  //   const new_server: IServer = {
+  //     name: server_name,
+  //     content: server_content,
+  //     is_blueprint: is_blueprint,
+  //   };
+  //   this.addServer.emit(new_server);
+  // }
+
+  addServerClick(server_name: string, is_blueprint: boolean = false) {
+    const server_content: string = this.serverContentInput.nativeElement.value;
     const new_server: IServer = {
       name: server_name,
       content: server_content,
