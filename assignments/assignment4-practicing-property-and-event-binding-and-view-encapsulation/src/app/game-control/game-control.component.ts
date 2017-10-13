@@ -10,6 +10,7 @@ export class GameControlComponent implements OnInit {
   timerHandle: any;
   counter = 0;
   @Output() onGameTick: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onGameStopped: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 
@@ -29,5 +30,6 @@ export class GameControlComponent implements OnInit {
     clearInterval(this.timerHandle);
     this.counter = 0;
     this.isStarted = false;
+    this.onGameStopped.emit();
   }
 }

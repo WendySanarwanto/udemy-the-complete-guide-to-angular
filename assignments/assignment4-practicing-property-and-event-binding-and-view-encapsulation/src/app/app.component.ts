@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  ticks: number[] = [];
+
+  onGameTick(event) {
+    this.ticks.push(event.counter);
+  }
+
+  onGameStopped() {
+    this.ticks = [];
+  }
+
+  isOdd(number) {
+    return number % 2 > 0;
+  }
+
+  isEven(number) {
+    return number % 2 === 0;
+  }
 }

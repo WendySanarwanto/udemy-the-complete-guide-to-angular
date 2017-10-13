@@ -15,5 +15,13 @@
     </div>
   </div>
   <hr>
-  <app-game-control></app-game-control>
+  <app-game-control (onGameTick)="onGameTick($event)" 
+                    (onGameStopped)="onGameStopped()"></app-game-control>
+  <br>                    
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let tick of ticks" >
+      <app-even *ngIf="isEven(tick)"  [evenNumber] = "tick"></app-even>
+      <app-odd *ngIf="!isEven(tick)"  [oddNumber] = "tick"></app-odd>
+    </li>
+  </ul>
 </div>
