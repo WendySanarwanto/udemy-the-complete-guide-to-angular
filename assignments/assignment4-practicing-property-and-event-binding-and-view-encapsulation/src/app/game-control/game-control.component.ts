@@ -21,7 +21,6 @@ export class GameControlComponent implements OnInit {
     this.timerHandle = setInterval(() => {
       this.counter++;
       this.onGameTick.emit({counter: this.counter});
-      console.log(`[DEBUG] - in 'GameControlComponent', 'onStartTheGame', 'this.counter' = ${this.counter}`);
     }, 1000);
     this.isStarted = true;
   }
