@@ -1,0 +1,10 @@
+<!-- Declare a Button to add a new Recipe -->
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success">New Recipe</button>
+    </div>
+</div>
+<hr>
+<!-- Declare a list of Recipe Item -->
+<app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe">
+</app-recipe-item>
